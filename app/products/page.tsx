@@ -50,7 +50,7 @@ export default function ProductsPage() {
     e.preventDefault();
     try {
       await axios.post(
-        "http://localhost:5000/api/products",
+        "https://smart-inventory-backend-8jff.onrender.com/api/products",
         {
           ...form,
           price: Number(form.price),
@@ -69,7 +69,7 @@ export default function ProductsPage() {
 
   const deleteProduct = async (id: string) => {
     if (!confirm("Remove this item?")) return;
-    await axios.delete(`http://localhost:5000/api/products/${id}`, {
+    await axios.delete(`https://smart-inventory-backend-8jff.onrender.com/api/products/${id}`, {
       headers: { Authorization: `Bearer ${token}` },
     });
     fetchProducts();
